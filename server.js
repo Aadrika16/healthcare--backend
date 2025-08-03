@@ -8,8 +8,11 @@ const bcrypt = require('bcrypt');
 
 const dbPath = path.join(__dirname , 'healthdata.db');
 const app=express();
+
+const allowedOrigin = 'https://healthcarefullstack1.netlify.app';
+
 app.use(cors({
-  origin: 'https://healthcare-backend-og2g.onrender.com', // or use "*" for public APIs
+  origin: allowedOrigin,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
