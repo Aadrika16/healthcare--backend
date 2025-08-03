@@ -8,7 +8,11 @@ const bcrypt = require('bcrypt');
 
 const dbPath = path.join(__dirname , 'healthdata.db');
 const app=express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://healthcare-backend-og2g.onrender.com', // or use "*" for public APIs
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 let db=null;
